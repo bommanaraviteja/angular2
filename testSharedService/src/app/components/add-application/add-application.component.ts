@@ -16,6 +16,7 @@ export class AddApplicationComponent implements OnInit {
   addApp(name: any){
     alert(name);
     this.commonService.notifyOther({option: 'get', value: name});
+    this.commonService.setData("RaviTeja");
   }
 
 }

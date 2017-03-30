@@ -25,6 +25,8 @@ export class MyAppsComponent implements OnInit {
 
   testCall(name: any){
     this.title =  name;
+
+    alert(this.commonService.getData());
   }
    
 }

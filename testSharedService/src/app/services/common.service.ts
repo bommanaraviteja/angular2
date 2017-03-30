@@ -2,6 +2,8 @@ import { Injectable, Inject } from '@angular/core';
 import { Subject }    from 'rxjs/Subject';
 @Injectable()
 export class CommonService {
+data: any;
+
   private notify = new Subject<any>();
   /**
    * Observable string streams
@@ -15,4 +17,15 @@ export class CommonService {
       this.notify.next(data);
     }
   }
+
+setData(data:any){
+this.data = data;
 }
+
+getData(){
+  return this.data;
+}
+
+
+}
+
