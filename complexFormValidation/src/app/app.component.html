@@ -1,0 +1,41 @@
+<form #heroForm="ngForm"  (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" class="form-control"
+               required minlength="4" maxlength="24" forbiddenName="bob"
+               name="name" [(ngModel)]="name" >
+    <div *ngIf="formErrors.name" class="alert alert-danger">
+          {{ formErrors.name }}
+        </div>
+
+  </div>
+
+   <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="hemail" class="form-control" required name="hemail" [(ngModel)]="hemail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+    <div *ngIf="formErrors.hemail" class="alert alert-danger">
+          {{ formErrors.hemail }}
+        </div>
+  </div>
+
+   <div class="form-group">
+    <label for="cpassword">password</label>
+    <input type="password" id="cpassword" validateEqual="cccpassword" reverse="true" class="form-control" required name="cpassword" [(ngModel)]="cpassword" >
+    <div *ngIf="formErrors.cpassword" class="alert alert-danger">
+          {{ formErrors.cpassword }}
+        </div>
+    
+    
+  </div>
+
+   <div class="form-group">
+    <label for="ccpassword">Confirm password</label>
+    <input type="password" id="cccpassword" class="form-control" validateEqual="cpassword"  name="cccpassword" [(ngModel)]="cccpassword" #ccccpassword="ngModel">
+     <div *ngIf="formErrors.cccpassword" class="alert alert-danger">
+          {{ formErrors.cccpassword }}
+        </div>
+  </div>
+<!--https://scotch.io/tutorials/how-to-implement-a-custom-validator-directive-confirm-password-in-angular-2-->
+
+
+</form>
